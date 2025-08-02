@@ -43,6 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         originalFile = file;
         originalSizeText.textContent = formatFileSize(file.size);
+        reducedSizeText.textContent = '-'; // Reset reduced size display
+        outputContainer.style.display = 'none'; // Hide previous results
 
         const reader = new FileReader();
         reader.onload = (e) => {
@@ -84,28 +86,27 @@ document.addEventListener('DOMContentLoaded', () => {
         reduceButton.textContent = 'Reducing...';
 
         try {
-            // Create a canvas with the original dimensions
             const canvas = document.createElement('canvas');
             canvas.width = originalImage.width;
             canvas.height = originalImage.height;
             const ctx = canvas.getContext('2d');
             ctx.drawImage(originalImage, 0, 0);
 
-            // Binary search for the best quality
             let minQuality = 0;
             let maxQuality = 1;
             let bestImageDataUrl = '';
 
-            for (let i = 0; i < 10; i++) { // 10 iterations are usually enough
+            // Perform a binary search to find the optimal quality
+            for (let i = 0; i < 10; i++) {
                 const currentQuality = (minQuality + maxQuality) / 2;
                 const dataUrl = canvas.toDataURL('image/jpeg', currentQuality);
                 const blob = dataURLtoBlob(dataUrl);
 
                 if (blob.size <= targetSizeBytes) {
                     bestImageDataUrl = dataUrl;
-                    minQuality = currentQuality; // Try for better quality
+                    minQuality = currentQuality;
                 } else {
-                    maxQuality = currentQuality; // Quality is too high
+                    maxQuality = currentQuality;
                 }
             }
 
