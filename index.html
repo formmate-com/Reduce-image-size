@@ -11,7 +11,7 @@
         <h1>Reduce Image File Size</h1>
         <p class="subtitle">Reduce image file size to a target KB without changing dimensions.</p>
         
-        <!-- Upload Area -->
+        <!-- Upload Area: The entire box is a clickable label -->
         <label for="imageInput" id="uploadArea" class="upload-area">
             <div id="uploadContent">
                 <p class="upload-text">Drag & Drop your image here</p>
@@ -19,6 +19,8 @@
                 <span class="browse-button">Browse Files</span>
             </div>
             <img id="imagePreview" class="image-preview" src="">
+            <!-- **CRITICAL FIX**: The hidden file input is now correctly placed inside the label -->
+            <input type="file" id="imageInput" accept="image/*" hidden>
         </label>
         
         <!-- Info Display -->
