@@ -3,24 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reduce Image File Size</title>
+    <title>Formmate - Reduce Image File Size</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Header styling */
+        .site-header {
+            background-color: #0052cc;
+            color: white;
+            padding: 10px 15px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .site-header h1 {
+            font-size: 20px;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .site-header .app-name {
+            color: #b4ff00;
+        }
+
+        .site-header small {
+            display: block;
+            font-size: 12px;
+            margin-top: 2px;
+            color: #ffffffcc;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- 🔥 Added Formmate Heading Section Start -->
-    <div style="background-color: #0052cc; color: white; padding: 20px 15px; text-align: center; font-family: Arial, sans-serif;">
-        <h1 style="font-size: 32px; margin-bottom: 10px;">
-            <span style="color: #b4ff00; font-weight: bold;">Formmate</span> / <span style="font-weight: bold;">ফর্ম-মেট</span>
-        </h1>
-        <p style="font-size: 18px; margin: 0;">Essential tools and direct Govt portal access for students & Job Seeker</p>
-        <p style="margin-top: 10px; font-size: 16px;">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/512px-Google_Play_Store_badge_EN.svg.png" 
-                 alt="Available on Google Play Store" 
-                 style="height: 40px; vertical-align: middle;">
-        </p>
+    <!-- 🔵 Small Header Section Start -->
+    <div class="site-header">
+        <h1><span class="app-name">Formmate</span> / ফর্ম-মেট</h1>
+        <small>Essential tools & Govt portal access for students & job seekers</small>
     </div>
-    <!-- 🔥 Added Formmate Heading Section End -->
+    <!-- 🔵 Small Header Section End -->
 
     <div class="container">
         <h1>Reduce Image File Size</h1>
@@ -34,7 +54,6 @@
                 <span class="browse-button">Browse Files</span>
             </div>
             <img id="imagePreview" class="image-preview" src="">
-            <!-- **CRITICAL FIX**: The hidden file input is now correctly placed inside the label -->
             <input type="file" id="imageInput" accept="image/*" hidden>
         </label>
         
@@ -65,6 +84,7 @@
             <a id="downloadLink" href="#" download="reduced-image.jpg">Download Reduced Image</a>
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
